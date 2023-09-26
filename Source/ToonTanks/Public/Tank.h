@@ -18,6 +18,13 @@ public:
 	// Sets default values for this pawn's properties
 	ATank();
 
+protected:
+	virtual void BeginPlay() override;
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
 private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
@@ -37,4 +44,6 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Movement")
 		float TurnRate = 45.f;
+
+	APlayerController* PlayerControllerRef;
 };
